@@ -1,0 +1,9 @@
+[AutoProxy 0.1.0]
+! Checksum: AhEaGj/IwEY/xhPXPws59Q
+*.youtube.com
+*.facebook.com
+*.google.com
+*.github.io
+*.emacser.com
+*.twitter.com
+! 订阅更新源https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt

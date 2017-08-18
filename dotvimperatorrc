@@ -1,0 +1,11 @@
+"3.16.0 (created: 2017/02/01 00:55:15)
+
+highlight CmdLine background: white; color: black; transition: all 0.25s; font-size: 12px;
+highlight Hint font-family: monospace; font-size: 11px; font-weight: bold; text-transform: uppercase; color: white; background-color: #f07e00; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 0px 1px 0px 1px;
+inoremap <C-g> <Esc>
+noremap <C-g> <Esc>
+set hintchars=fdsagtrewqvcxbz
+set newtab=all
+source! .vimperatorrc.local
+
+" vim: set ft=vimperator:

@@ -1,0 +1,357 @@
+" Use Vim settings, rather than Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible
+
+"显示行号
+set nu
+
+"打开文件编码
+set fencs=utf-8,gb2312,ucs-bom,gb18030,gbk,cp936,big5
+
+"" Switch syntax highlighting on, when the terminal has colors
+"" Also switch on highlighting the last used search pattern.
+"if &t_Co > 2 || has("gui_running")
+  syntax on
+"  set hlsearch
+"endif
+
+"if has("vms")
+  set nobackup		" do not keep a backup file, use versions instead
+"else
+"  set backup		" keep a backup file
+"endif
+"set history=50		" keep 50 lines of command line history
+"set ruler		    " show the cursor position all the time
+"set showcmd		" display incomplete commands
+set incsearch		" do incremental searching
+
+"搜索高亮
+"set hlsearch
+
+"搜索忽略大小写
+set ignorecase
+
+"显示状态栏
+set laststatus=2
+"%F 当前文件名
+"%m 当前文件修改状态
+"%r 当前文件是否只读
+"%Y 当前文件类型
+"%{&fileformat} 当前文件编码
+"%b 当前光标处字符的 ASCII 码值
+"%B 当前光标处字符的十六进制值
+"%l 当前光标行号
+"%c 当前光标列号
+"%V 当前光标虚拟列号 (根据字符所占字节数计算)
+"%p 当前行占总行数的百分比
+"%% 百分号
+"%L 当前文件总行数
+set statusline=%F%m%r%h%w\ [%Y]\ [%04v,%p%%:%L]
+""an Example
+"set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
+
+"配色方案
+""/usr/share/vim/vim73/colors/*.vim
+":colorscheme darkblue
+":colorscheme default
+":colorscheme delek
+":colorscheme desert
+":colorscheme elflord
+":colorscheme evening
+":colorscheme koehler
+":colorscheme murphy
+":colorscheme pablo
+":colorscheme peachpuff
+:colorscheme ron
+":colorscheme shine
+":colorscheme slate
+":colorscheme torte
+":colorscheme zellner
+
+"自动缩进相关
+set autoindent
+set cindent
+
+" 4 space tabs
+set tabstop=4|set shiftwidth=4|set expandtab|set softtabstop=4
+
+"Set leader key
+let mapleader=","
+
+""leader key 按键映射
+"映射Esc键
+nmap <leader>, <esc>
+imap <leader>, <esc>
+cmap <leader>, <esc>
+vmap <leader>, <esc>
+"打开关闭新标签
+nmap <leader>t :tabnew<space>
+nmap <leader>c :tabclose<cr>
+"分屏显示新文件
+nmap <leader>v :vsplit<space>
+nmap <leader>s :split<space>
+"行末添加; (并换行)
+nmap <leader>; A;<esc>
+:inoremap ;; <ESC>A;<CR>
+"帮助(及命令)
+"nmap <leader>: :
+nmap <leader>h :help<space>
+"添加注释
+nmap <leader>" I"<esc>
+vmap <leader>" I"<esc>
+nmap <leader>3 I#<esc>
+vmap <leader>3 I#<esc>
+nmap <leader>. I/**/<esc>hi
+imap <leader>. /**/<esc>hi
+vmap <leader>. di/**/<esc>hP
+vmap <leader>e di/**/<esc>hP$xF/P
+vmap <leader>4 di/*<esc>pA*/<esc>
+"查询当前字符ASCII码
+nmap <leader>a ga
+"保存和退出
+nmap <leader>1 :q!<cr>
+nmap <leader>w :w<cr>
+nmap <leader>q :q<cr>
+nmap <leader>2 :wq<cr>
+"普通模式下退格和回车
+nmap <leader>b i<backspace><esc>
+nmap <leader>n i<cr><esc>
+"添加空格和空行
+nmap <leader>i i<cr><esc>
+nmap <leader><space> i<space><esc>
+nmap <leader>o o<esc>
+nmap <leader>O O<esc>
+"插入模式下移动
+imap <leader>H <esc>i
+imap <leader>L <esc>la
+imap <leader>J <esc>jA
+
+"输入模式光标在行中换行
+imap <A-o> <esc>o
+imap <A-O> <esc>O
+
+"Smart way to move btw. windows
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-h> <C-w>h
+map <C-l> <C-w>l
+
+" make tab in normal mode ident code
+nmap <tab> I<tab><esc>
+nmap <s-tab> ^i<bs><esc>
+
+" make tab in v mode ident code
+vmap <tab> >gv
+vmap <s-tab> <gv
+
+" paste mode - this will avoid unexpected effects when you
+" cut or copy some text from one window and paste it in Vim.
+set pastetoggle=<F2>
+
+"map sys yank paste
+"map <F3> "+y
+"map <F4> "+p
+
+
+"""" 4Perl
+"start{
+" use visual bell instead of beeping
+set vb
+
+" syntax highlighting
+"set bg=light
+"set bg=dark
+
+" autoindent
+autocmd FileType perl "set autoindent|
+set smartindent
+
+" show matching brackets
+autocmd FileType perl set showmatch
+
+" check perl code with :make
+autocmd FileType perl set makeprg=perl\ -c\ %\ $*
+autocmd FileType perl set errorformat=%f:%l:%m
+autocmd FileType perl set autowrite
+
+" dont use Q for Ex mode
+map Q :q
+
+" comment/uncomment blocks of code (in vmode)
+vmap $1 :s/^/#/gi<Enter>
+vmap $2 :s/^#//gi<Enter>
+
+" my perl includes pod
+let perl_include_pod = 1
+
+" syntax color complex things like @{${"foo"}}
+let perl_extended_vars = 1
+
+" Tidy selected lines (or entire file) with _t:
+nnoremap <silent> _t :%!perltidy -q<Enter>
+vnoremap <silent> _t :!perltidy -q<Enter>
+
+" Deparse obfuscated code
+nnoremap <silent> _d :.!perl -MO=Deparse 2>/dev/null<cr>
+vnoremap <silent> _d :!perl -MO=Deparse 2>/dev/null<cr>
+
+"end 4Perl }
+
+
+"""" 4Ruby
+"start{
+autocmd FileType ruby "set autoindent|
+set smartindent
+"end 4Ruby }
+
+
+"""" 括号自动补全
+"start{
+:inoremap <S-ENTER> <c-r>=SkipPair()<CR>
+:inoremap <S-SPACE> <ESC>la
+:inoremap <C-ENTER> <ESC>A;<CR>
+:inoremap ( ()<ESC>i
+:inoremap ) <c-r>=ClosePair(')')<CR>
+":inoremap { <c-r>=ClsoeBrace()<CR>
+:inoremap } <c-r>=ClosePair('}')<CR>
+:inoremap [ []<ESC>i
+:inoremap ] <c-r>=ClosePair(']')<CR>
+
+function ClosePair(char)
+    if getline('.')[col('.') - 1] == a:char
+	    return "\<Right>"
+    else
+	    return a:char
+    endif
+endf
+
+"function Semicolon()
+""echo getline('.')[col('.')]
+"    if getline('.')[col('.')] == ')'
+"	    return "<ESC>A;"
+"    elseif getline('.')[col('.')] == '}'
+"	    return "\<ESC>A;"
+"    elseif getline('.')[col('.')] == ']'
+"	    return "\<ESC>A;"
+"    else
+"	    return ";"
+"    endif
+"endf
+
+function SkipPair()
+    if getline('.')[col('.') - 1] == ')'
+	    return "\<ESC>o"
+    else
+	    normal j
+	    let curline = line('.')
+	    let nxtline = curline
+        while curline == nxtline
+	        if getline('.')[col('.') - 1] == '}'
+		        normal j
+		        let nxtline = nxtline + 1
+		        let curline = line('.')
+		        continue
+		    else
+		        return "\<ESC>i"
+		    endif
+	    endwhile
+	        return "\<ESC>o"
+    endif
+endf
+
+"function ClsoeBrace()
+"    if getline('.')[col('.') - 2] == '='
+"	    return "{}\<ESC>i"
+"    elseif getline('.')[col('.') - 3] == '='
+"	    return "{}\<ESC>i"
+"    elseif getline('.')[col('.') - 1] == '{'
+"	    return "{}\<ESC>i"
+"    elseif getline('.')[col('.') - 2] == '{'
+"	    return "{}\<ESC>i"
+"    elseif getline('.')[col('.') - 2] == ','
+"	    return "{}\<ESC>i"
+"    elseif getline('.')[col('.') - 3] == ','
+"	    return "{}\<ESC>i"
+"    else
+"	    return "{\<ENTER>}\<ESC>O"
+"    endif
+"endf
+"end 括号补全 }
+
+
+"/usr/share/vim/vim73/vimrc_example.vim
+" An example for a vimrc file.
+"
+" Maintainer:	Bram Moolenaar <Bram@vim.org>
+" Last change:	2011 Apr 15
+"
+" To use it, copy it to
+"     for Unix and OS/2:  ~/.vimrc
+"	      for Amiga:  s:.vimrc
+"  for MS-DOS and Win32:  $VIM\_vimrc
+"	    for OpenVMS:  sys$login:.vimrc
+
+" When started as "evim", evim.vim will already have done these settings.
+if v:progname =~? "evim"
+  finish
+endif
+
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
+" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
+" let &guioptions = substitute(&guioptions, "t", "", "g")
+
+" Don't use Ex mode, use Q for formatting
+"map Q gq
+
+" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
+" so that you can undo CTRL-U after inserting a line break.
+inoremap <C-U> <C-G>u<C-U>
+
+" In many terminal emulators the mouse works just fine, thus enable it.
+if has('mouse')
+  set mouse=a
+endif
+
+" Only do this part when compiled with support for autocommands.
+if has("autocmd")
+
+  " Enable file type detection.
+  " Use the default filetype settings, so that mail gets 'tw' set to 72,
+  " 'cindent' is on in C files, etc.
+  " Also load indent files, to automatically do language-dependent indenting.
+  filetype plugin indent on
+
+  " Put these in an autocmd group, so that we can delete them easily.
+  augroup vimrcEx
+  au!
+
+  " For all text files set 'textwidth' to 78 characters.
+  autocmd FileType text setlocal textwidth=78
+
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it when the position is invalid or when inside an event handler
+  " (happens when dropping a file on gvim).
+  " Also don't do it when the mark is in the first line, that is the default
+  " position when opening a file.
+  autocmd BufReadPost *
+    \ if line("'\"") > 1 && line("'\"") <= line("$") |
+    \   exe "normal! g`\"" |
+    \ endif
+
+  augroup END
+
+else
+
+  set autoindent		" always set autoindenting on
+
+endif " has("autocmd")
+
+" Convenient command to see the difference between the current buffer and the
+" file it was loaded from, thus the changes you made.
+" Only define it when not defined already.
+if !exists(":DiffOrig")
+  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+		  \ | wincmd p | diffthis
+endif
