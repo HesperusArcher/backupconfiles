@@ -7,6 +7,7 @@ alias up="sudo dnf update"
 # for openSUSE
 alias in="sudo zypper in"
 alias up="sudo zypper up"
+alias zrm='sudo zypper rm -u'
 
 # for deb
 alias in="sudo apt-get install"
