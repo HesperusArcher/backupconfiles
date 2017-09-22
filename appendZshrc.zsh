@@ -4,6 +4,7 @@ ZSH_THEME="ys"
 
 # for rpm
 alias in="sudo dnf install"
+alias se="sudo dnf search"
 alias up="sudo dnf update"
 
 # for openSUSE
