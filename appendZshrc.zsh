@@ -20,10 +20,12 @@ alias up="sudo apt-get update && sudo apt-get upgrade"
 # for arch yaourt
 alias s="yaourt -Ss"
 alias S="yaourt -S"
+alias Syu="yaourt -Syu"
 
-# rpm&deb
+# sh in terminal
 alias diffy="diff -y --suppress-common-lines"
 alias emacs="emacs -nw"
 alias rbt="sudo reboot now"
 alias rmrf="rm -rf"
 alias shdh="sudo shutdown -h now"
+alias xl="xelatex"
