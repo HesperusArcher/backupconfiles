@@ -23,9 +23,10 @@ alias S="yaourt -S"
 alias Syu="yaourt -Syu"
 
 # sh in terminal
+alias bb="bibtex"
 alias diffy="diff -y --suppress-common-lines"
 alias emacs="emacs -nw"
 alias rbt="sudo reboot now"
 alias rmrf="rm -rf"
 alias shdh="sudo shutdown -h now"
-alias xl="xelatex"
+alias xx="xelatex"
