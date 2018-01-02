@@ -30,3 +30,8 @@ alias rbt="sudo reboot now"
 alias rmrf="rm -rf"
 alias shdh="sudo shutdown -h now"
 alias xx="xelatex"
+
+# c dir
+alias doomstella="cd ~/.emacs.d/modules/private/stella/"
+alias rimeconfig="cd ~/.config/fcitx/rime/"
+alias rimestella="cd ~/.config/fcitx/rime/sync/stella/"
