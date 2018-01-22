@@ -2,6 +2,11 @@
 
 ZSH_THEME="ys"
 
+plugins=(
+    archlinux
+    git
+)
+
 # for rpm
 alias in="sudo dnf install"
 alias se="sudo dnf search"
@@ -21,6 +26,8 @@ alias up="sudo apt-get update && sudo apt-get upgrade"
 alias s="yaourt -Ss"
 alias S="yaourt -S"
 alias Syu="yaourt -Syu"
+alias Syua="yaourt -Syua"
+alias yR="yaourt -Rns"
 
 # sh in terminal
 alias bb="bibtex"
@@ -33,5 +40,5 @@ alias xx="xelatex"
 
 # c dir
 alias doomstella="cd ~/.emacs.d/modules/private/stella/"
-alias rimeconfig="cd ~/.config/fcitx/rime/"
+alias fcitxrime="cd ~/.config/fcitx/rime/"
 alias rimestella="cd ~/.config/fcitx/rime/sync/stella/"
