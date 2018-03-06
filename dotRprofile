@@ -2,11 +2,17 @@ local({dp <- Sys.getenv("R_DEFAULT_PACKAGES")
        if(identical(dp, "")) # marginally faster to do methods last
            dp <- c("datasets", "utils", "grDevices", "graphics",
                    "stats", "methods", "ggplot2",
+                   "knitr", "lintr", #ess
                    "DESeq", "edgeR", "gplots", "limma", "VennDiagram", #TCGA
                    ## "reshape", "vcd", #vcd::spine()
                    "Hmisc", "pastecs", "psych", #describe() stat.desc() corr.test()
                    "gmodels", #CrossTable()
-                   "car", #qqPlot()
+                   "car", #qqPlot() durbinWatsonTest() crPlots() ncvTest() spreadLevelPlot()
+                   ## "HH", #anova #dependency ‘Rmpfr’ is not available
+                   "rrcov", "mvoutlier", #anova
+                   "gvlma", #gvlma()
+                   "leaps", #regsubsets()
+                   "pwr", #power analysis
                    "hash")
        else if(identical(dp, "NULL")) dp <- character(0)
        else dp <- strsplit(dp, ",")[[1]]
