@@ -1,6 +1,8 @@
 # append alias for oh-my-zsh ~/.zshrc
 
-ZSH_THEME="bira"
+# ZSH_THEME="avit"
+# ZSH_THEME="bira"
+# ZSH_THEME="mortalscumbag"
 ZSH_THEME="ys"
 
 plugins=(
