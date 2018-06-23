@@ -6,8 +6,10 @@
 ZSH_THEME="ys"
 
 plugins=(
-    archlinux
+    # archlinux
     git
+    zsh-autosuggestions
+    zsh-syntax-highlighting
 )
 
 # for rpm
