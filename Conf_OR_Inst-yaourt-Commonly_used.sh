@@ -1,3 +1,3 @@
 #!/bin/bash
 
-yaourt -S tcl tk gcc-fortran rstudio-desktop emacs-git zsh git adobe-source-code-pro-fonts adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts fcitx-rime fcitx-configtool kcm-fcitx fcitx-ui-light google-chrome-beta redshift-qt shadowsocks-qt5 aspell-en
+yaourt -S git vim zsh emacs-git nutstore fcitx-configtool fcitx-im fcitx-rime fcitx-ui-light kcm-fcitx adobe-source-code-pro-fonts adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts aspell-en google-chrome-dev shadowsocks-qt5 redshift-qt rstudio-desktop-bin tcl tk perl-json gcc-fortran texlive-most anaconda
