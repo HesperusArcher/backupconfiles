@@ -1,3 +1,11 @@
+# config via XieYihui
+options(repos = c(CRAN = "http://streaming.stat.iastate.edu/CRAN",
+                  CRANextra = "http://www.stats.ox.ac.uk/pub/RWin"))
+if (interactive()) {
+  suppressMessages(require(devtools))
+  options(warn = 1)
+}
+
 local({dp <- Sys.getenv("R_DEFAULT_PACKAGES")
        if(identical(dp, "")) # marginally faster to do methods last
            dp <- c("datasets", "utils", "grDevices", "graphics",
