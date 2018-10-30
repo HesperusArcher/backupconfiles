@@ -1,6 +1,6 @@
 # config via XieYihui
-options(repos = c(CRAN = "http://streaming.stat.iastate.edu/CRAN",
-                  CRANextra = "http://www.stats.ox.ac.uk/pub/RWin"))
+# options(repos = c(CRAN = "http://streaming.stat.iastate.edu/CRAN",
+#                   CRANextra = "http://www.stats.ox.ac.uk/pub/RWin"))
 if (interactive()) {
   suppressMessages(require(devtools))
   options(warn = 1)
