@@ -1,0 +1,7 @@
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+BiocManager::install(c("edgeR","DESeq","limma","gplots"))
+BiocManager::install(c("GO.db", "preprocessCore", "impute"))
+install.packages("VennDiagram")
+install.packages(c("matrixStats", "Hmisc", "splines", "foreach", "doParallel", "reshape", "fastcluster", "dynamicTreeCut", "survival"))
+install.packages("WGCNA")
