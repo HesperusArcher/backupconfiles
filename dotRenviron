@@ -1,4 +1,4 @@
-R_LIBS_USER="~/R"
+R_LIBS_USER="~/R/library"
 
 # default library path
 # /usr/lib/R/library
