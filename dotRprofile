@@ -6,6 +6,16 @@ if (interactive()) {
   options(warn = 1)
 }
 
+.First <- function() {
+    ## library()
+    ## source("~/R/transcript.R")
+    cat("\nHello, Yuanchen\n",date(),"\n")
+}
+
+## .Last <- function() {
+##     cat("\nGoodbye at",date(),"\n")
+## }
+
 local({dp <- Sys.getenv("R_DEFAULT_PACKAGES")
        if(identical(dp, "")) # marginally faster to do methods last
            dp <- c("datasets", "utils", "grDevices", "graphics",
